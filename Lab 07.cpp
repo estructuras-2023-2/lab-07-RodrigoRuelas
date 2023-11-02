@@ -28,7 +28,14 @@ vector<int> Torneo(std::vector<int> habilidades, int N, int K) {
 
 int main()
 {
-    cout<<"Hello World";
+    vector<int> habilidades = {1, 2, 3};
+    int N = 2;
+    int K = 2;
+
+    vector<int> resultado = Torneo(habilidades, N, K);
+
+    cout << "Perdedor del juego " << K << ": " << resultado[0] << endl;
+    cout << "Ganador del juego " << K << ": " << resultado[1] << endl;
 
     return 0;
 }
