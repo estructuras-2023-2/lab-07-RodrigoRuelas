@@ -2,10 +2,9 @@
 #include <vector>
 using namespace std;
 
-vector<int> Torneo(std::vector<int> habilidades, int N, int K) {
-    int ganador, perdedor;
-
+vector<int> Torneo(vector<int> habilidades, int N, int K) {
     for (int juego = 1; juego <= K; juego++) {
+        int ganador, perdedor;
         if (habilidades[0] > habilidades[1]) {
             ganador = habilidades[0];
             perdedor = habilidades[1];
@@ -15,27 +14,25 @@ vector<int> Torneo(std::vector<int> habilidades, int N, int K) {
         }
 
         if (juego % (2 * N) == 0) {
-            habilidades.push_back(ganador);
-            habilidades.erase(habilidades.begin(), habilidades.begin() + 2);
+            habilidades[0] = ganador;
+            habilidades[1] = perdedor;
         } else {
-            habilidades.push_back(perdedor);
-            habilidades.erase(habilidades.begin(), habilidades.begin() + 1);
+            habilidades[1] = perdedor;
         }
     }
 
-    return {perdedor, ganador};
+    return habilidades;
 }
 
-int main()
-{
-    vector<int> habilidades = {1, 2, 3};
-    int N = 2;
-    int K = 2;
+int main() {
+    vector<int> habilidades = {30, 12};
+    int N = 34;
+    int K = 80;
 
     vector<int> resultado = Torneo(habilidades, N, K);
 
-    cout << "Perdedor del juego " << K << ": " << resultado[0] << endl;
-    cout << "Ganador del juego " << K << ": " << resultado[1] << endl;
+    cout << "Perdedor del juego " << K << ": " << resultado[1] << endl;
+    cout << "Ganador del juego " << K << ": " << resultado[0] << endl;
 
     return 0;
 }
