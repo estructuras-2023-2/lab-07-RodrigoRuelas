@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-using namespace std;
-
 #include <queue>
+using namespace std;
 
 vector<int> Torneo(vector<int> H, int N, int K) {
     queue<int> cola;
